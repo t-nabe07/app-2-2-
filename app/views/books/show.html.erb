@@ -43,10 +43,10 @@
         <% end %>
 
         <tr>
-          <td colspan="5" >
+          <td colspan="7" >
             <div>
               <%= form_with(model:[@book,@book_comment],local: true) do |f| %>
-                <%= f.text_area :comment,size:"50x5",placeholder:"コメントをここに" %>
+                <%= f.text_area :comment,size:"60x5",placeholder:"コメントをここに" %>
                 <br><%= f.submit "送信" %>
               <% end %>
             </div>
