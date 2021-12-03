@@ -6,7 +6,6 @@ class UsersController < ApplicationController
     @books = @user.books
     @book = Book.new
     @count_book = Book.find(params[:id])
-    #book = Book.find(params[:id])
   end
 
   def index

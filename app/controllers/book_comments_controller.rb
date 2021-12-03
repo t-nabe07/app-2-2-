@@ -8,7 +8,6 @@ class BookCommentsController < ApplicationController
       redirect_to book_path(book)
     else
       redirect_to request.referer
-      #render 'book/show'
     end
   end
 
