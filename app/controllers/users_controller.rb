@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
-    @count_book = Book.find(params[:id])
+    #@count_book = Book.find(params[:id])
   end
 
   def index
