@@ -44,11 +44,8 @@
 
         <tr>
           <td colspan="7" >
-            <div>
-              <%= form_with(model:[@book,@book_comment],local: true) do |f| %>
-                <%= f.text_area :comment,size:"60x5",placeholder:"コメントをここに" %>
-                <br><%= f.submit "送信" %>
-              <% end %>
+            <div class="comment_btn">
+              <%= render "book_comments/comment",book: @book %>
             </div>
           </td>
         </tr>
