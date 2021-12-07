@@ -1,5 +1,4 @@
-<table>
-  <% @book.book_comments.each do |book_comment| %>
+  <% book.book_comments.each do |book_comment| %>
     <tr>
       <td>
         <%= link_to user_path(book_comment.user) do %>
@@ -9,13 +8,9 @@
       </td>
       <td><%= book_comment.comment %></td>
       <% if book_comment.user == current_user %>
-        <td><%= link_to "Destroy",book_book_comment_path(book_comment.book,book_comment), method: :delete,remote: true, class: "btn btn-sm btn-danger" %></td>
+        <td><%= link_to "Destroy",book_book_comment_path(book_comment.book.id,book_comment.id), method: :delete,remote: true, class: "btn btn-sm btn-danger" %></td>
       <% end %>
     </tr>
   <% end %>
-</table>
- 
-  <%= form_with(model:[@book,@book_comment],remote: true) do |f| %>
-    <%= f.text_area :comment,size:"60x5",placeholder:"コメントをここに" %><br>
-    <%= f.submit "送信" %>
-  <% end %>
+
+
