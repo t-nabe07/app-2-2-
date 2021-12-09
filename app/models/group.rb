@@ -1,6 +1,7 @@
 class Group < ApplicationRecord
   has_many :group_users
   has_many :users, through: :group_users
-  attachment :image
+  attachment :image, destroy: false
+  validates :introduction, presence: true
   validates :name, presence: true, uniqueness: true
 end
