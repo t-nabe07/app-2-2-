@@ -18,4 +18,6 @@ Rails.application.routes.draw do
     resources :book_comments, only:[:create,:destroy]
   end
 
+  resources :groups, only:[:new, :create, :edit, :update, :show, :index]
+
 end
