@@ -35,7 +35,6 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
-
   end
 
   def destroy  #仮作成　最終的になくす
