@@ -2,7 +2,6 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @group.users << current_user #意味は？
   end
 
   def create
@@ -18,6 +17,9 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
+    if @group.owner_id != current_user.id
+      redirect_to groups_path
+    end
   end
 
   def update
@@ -46,6 +48,14 @@ class GroupsController < ApplicationController
   private
   def group_params
     params.require(:group).permit(:name, :introduction, :image)
+  end
+
+  #投稿者だけが編集・削除ができる記述 ここが効いてないからconntrollerでアクセス不可
+  def ensure_correct_user
+    @group = Group.find(params[:id])
+    if @group.owner_id != current_user.id
+      redirect_to groups_path
+    end
   end
 
 end

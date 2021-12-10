@@ -17,7 +17,6 @@ class User < ApplicationRecord
   #グループ機能実装
   has_many :group_users
   has_many :groups, through: :group_users
-  has_many :owned_groups, class_name: "Group"
 
   def follow(user_id)
   relationships.create(followed_id: user_id)
