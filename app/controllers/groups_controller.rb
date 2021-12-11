@@ -50,7 +50,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, :introduction, :image)
   end
 
-  #投稿者だけが編集・削除ができる記述 ここが効いてないからconntrollerでアクセス不可
+  #投稿者だけが編集・削除ができる記述 ここが効いてないみたいでconntrollerでアクセス不可
   def ensure_correct_user
     @group = Group.find(params[:id])
     if @group.owner_id != current_user.id
